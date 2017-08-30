@@ -25,12 +25,25 @@ function formSubmission() {
     makeGrid(height, width);
 }
 
+function updateColor() {
+  var clickedCell = event.target
+  clickedCell.style.backgroundColor = selectedColor
+}
+
 // on color selection return color:
 var colorPicker = document.getElementById("colorPicker")
-var color = color = colorPicker.value; // sets color to defaul(black)
+var selectedColor = colorPicker.value; // sets color to defaul(black)
 colorPicker.addEventListener("input", function() {
-  color = colorPicker.value;
+  selectedColor = colorPicker.value;
   }, false);
+
+// add click events to all cells
+var cells=document.getElementsByClassName('cell');
+for (i = 0; i < cells.length; i++) {
+    cells[i].addEventListener("click",  function(){
+        updateColor();
+    });
+}
 
 // on submit of form #sizePicker:
 document.getElementById('sizePicker').onsubmit = function() {formSubmission()};
