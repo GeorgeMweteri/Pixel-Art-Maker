@@ -25,6 +25,13 @@ function formSubmission() {
     makeGrid(height, width);
 }
 
+// on color selection return color:
+var colorPicker = document.getElementById("colorPicker")
+var color = color = colorPicker.value; // sets color to defaul(black)
+colorPicker.addEventListener("input", function() {
+  color = colorPicker.value;
+  }, false);
+
 // on submit of form #sizePicker:
 document.getElementById('sizePicker').onsubmit = function() {formSubmission()};
 
