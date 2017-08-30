@@ -1,7 +1,4 @@
 // Select color input
-// Select size input
-
-// When size is submitted by the user, call makeGrid()
 
 function makeGrid(height, width) {
   var table = document.getElementById("pixel_canvas");
@@ -21,9 +18,15 @@ function makeGrid(height, width) {
   table.innerHTML = grid
 }
 
-// on submit of form #sizePicker:
-  // height = value of #input_height
-  // width = value of #input_width
-  // makeGrid(height, width);
+function formSubmission() {
+    event.preventDefault()
+    var height = document.getElementById('input_height').value
+    var width = document.getElementById('input_width').value
+    makeGrid(height, width);
+}
 
-makeGrid(5, 5);
+// on submit of form #sizePicker:
+document.getElementById('sizePicker').onsubmit = function() {formSubmission()};
+
+// Build a default 10x10 grid.
+makeGrid(10,10)
